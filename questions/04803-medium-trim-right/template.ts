@@ -1,1 +1,4 @@
-type TrimRight<S extends string> = any
+type TrimRight<S extends string> =
+  S extends `${infer Left}${' ' | '\n' | '\t'}` ? (
+    TrimRight<Left>
+    ) : S
